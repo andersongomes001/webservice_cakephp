@@ -40,7 +40,7 @@ class HomeController extends ApiController
                     $time = Time::now()->timestamp;
                     $token =  JwtToken::generateToken($time);
                     $this->httpStatusCode = 200;
-                    $this->apiResponse['you_response'] = $user;
+                    $this->apiResponse['user'] = $user;
                     $this->apiResponse['token'] = $token;
                 }else{
                     Resposta::erro($this, "Email ou senha invalidos");
