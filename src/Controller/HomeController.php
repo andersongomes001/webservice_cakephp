@@ -6,6 +6,7 @@ use RestApi\Utility\JwtToken;
 use Migrations\Migrations;
 use Cake\Auth\DefaultPasswordHasher;
 use App\Model\Util\Resposta;
+use Cake\I18n\Time;
 
 class HomeController extends ApiController
 {
@@ -36,7 +37,8 @@ class HomeController extends ApiController
             $user = $this->Users->find('all')->where(['email' => $usuario ])->first();
             if($user){
                 if((new DefaultPasswordHasher)->check($senha, $user->password)){
-                    $token =  JwtToken::generateToken("name");
+                    $time = Time::now()->timestamp;
+                    $token =  JwtToken::generateToken($time);
                     $this->httpStatusCode = 200;
                     $this->apiResponse['you_response'] = $user;
                     $this->apiResponse['token'] = $token;
