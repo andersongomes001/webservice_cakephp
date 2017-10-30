@@ -1,3 +1,12 @@
 # CakePHP Application Skeleton
 
-webservice in cakephp
+Endpoint: localhost
+
+#@POST(/login)
+String email
+String password
+
+
+#@POST(user/create)
+String email
+String password
