@@ -1,4 +1,6 @@
 <?php
+$dbopts = parse_url(getenv('DATABASE_URL'));
+
 return [
     /**
      * Debug Level:
@@ -222,16 +224,16 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
-            'host' => 'ec2-54-163-240-7.compute-1.amazonaws.com',
+            'host' => $dbopts["host"],
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            //'port' => 'non_standard_port_number',
-            'username' => 'lkbjnsulqqqggu',
-            'password' => '58aebc2d5ba0b3c8e259500e8d25757bce205375c456b6cdfd97483f63f4b4c8',
-            'database' => 'd16mmmdpbrfrv4',
+            'port' => $dbopts["port"],
+            'username' => $dbopts["user"],
+            'password' => $dbopts["pass"],
+            'database' => ltrim($dbopts["path"],'/'),
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],

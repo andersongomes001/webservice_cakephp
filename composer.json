@@ -11,7 +11,8 @@
         "cakephp/migrations": "@stable",
         "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
-        "multidots/cakephp-rest-api": "^1.1"
+        "multidots/cakephp-rest-api": "^1.1",
+        "csanquer/pdo-service-provider": "~1.1dev"
     },
     "require-dev": {
         "psy/psysh": "@stable",
