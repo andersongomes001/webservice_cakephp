@@ -220,7 +220,7 @@ return [
      * See vendor\cakephp\cakephp\src\Database\Driver for complete list
      */
     'Datasources' => [
-        'default' => [
+        'default_' => [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Postgres',
             'persistent' => false,
@@ -234,6 +234,47 @@ return [
             'username' => $dbopts["user"],
             'password' => $dbopts["pass"],
             'database' => ltrim($dbopts["path"],'/'),
+            'encoding' => 'utf8',
+            'timezone' => 'UTC',
+            'flags' => [],
+            'cacheMetadata' => true,
+            'log' => false,
+
+            /**
+             * Set identifier quoting to true if you are using reserved words or
+             * special characters in your table or column names. Enabling this
+             * setting will result in queries built using the Query Builder having
+             * identifiers quoted when creating SQL. It should be noted that this
+             * decreases performance because each query needs to be traversed and
+             * manipulated before being executed.
+             */
+            'quoteIdentifiers' => false,
+
+            /**
+             * During development, if using MySQL < 5.6, uncommenting the
+             * following line could boost the speed at which schema metadata is
+             * fetched from the database. It can also be set directly with the
+             * mysql configuration directive 'innodb_stats_on_metadata = 0'
+             * which is the recommended value in production environments
+             */
+            //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+
+            'url' => env('DATABASE_URL', null),
+        ],
+        'default' => [
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Postgres',
+            'persistent' => false,
+            'host' => "ec2-54-163-240-7.compute-1.amazonaws.com",
+            /**
+             * CakePHP will use the default DB port based on the driver selected
+             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
+             * the following line and set the port accordingly
+             */
+            'port' => "5432",
+            'username' => "lkbjnsulqqqggu",
+            'password' => "58aebc2d5ba0b3c8e259500e8d25757bce205375c456b6cdfd97483f63f4b4c8",
+            'database' => "d16mmmdpbrfrv4",
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
