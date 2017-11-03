@@ -12,7 +12,8 @@
         "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
         "multidots/cakephp-rest-api": "^1.1",
-        "csanquer/pdo-service-provider": "~1.1dev"
+        "csanquer/pdo-service-provider": "~1.1dev",
+        "alt3/cakephp-swagger": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
